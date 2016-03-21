@@ -1,0 +1,42 @@
+<html>
+  <head>
+    <title>Our funkadelic app</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+  </head>
+  <body>
+    <div class="container-fluid">
+      <div class="jumbotron row">
+        <h1>February RoR Cohort <small>An awesome group</small></h1>
+        <form action="/search" method="POST" class="form-inline">
+          <div class="form-group col-md-5">
+            <label for="query">Query</label>
+            <input type="text" name="query" class="form-control">
+            <div class="row">
+              <div class="col-md-6">
+                <h6>This is 6 columns</h6>
+              </div>
+              <div class="col-md-2">
+                <p>2 columns</p>
+              </div>
+              <div class="col-md-4">
+                <h6>4 columns</h6>
+              </div>
+            </div>
+          </div>
+          <div class="form-group col-md-5">
+            <label for="search_engine">Search engine</label>
+            <input type="text" name="search_engine" placeholder="eg. google" class="form-control">
+          </div>
+          <div class="col-md-2">
+            <button type="submit" class="btn btn-primary">Search</button>
+          </div>
+        </form>
+      </div>
+      <ul class="list-inline">
+        <% @students.each do |student| %>
+          <li><%= student.upcase %></li>
+        <% end %>
+      </ul>
+    </div>
+  </body>
+</html>
