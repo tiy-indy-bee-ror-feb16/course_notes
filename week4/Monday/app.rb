@@ -33,5 +33,6 @@ end
 
 get '/:user/status/:id' do
   students = %w(James Matt Seth Kurt Ryder)
-  erb :index, locals: {full_name: students[params['id'].to_i]}
+  @full_name = students[params['id'].to_i]
+  erb :index
 end

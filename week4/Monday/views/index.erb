@@ -3,6 +3,7 @@
     <title>Our funkadelic app</title>
   </head>
   <body>
-    <h1><%= full_name.upcase %></h1>
+    <h1><%= @greeting %> <%= @full_name.upcase %></h1>
+    <%= params.inspect %>
   </body>
 </html>
