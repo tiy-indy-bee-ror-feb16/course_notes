@@ -1,0 +1,9 @@
+<% if @students.try(:any?) %>
+  <ul>
+    <% @students.each do |student| %>
+    <li><%= link_to student, greeting_path(greeting: student) %></li>
+    <% end %>
+  </ul>
+<% else %>
+  <h4>There are no students as yet.</h4>
+<% end %>

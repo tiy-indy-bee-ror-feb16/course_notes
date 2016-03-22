@@ -1,0 +1,11 @@
+<h2>Our sales this month averaged <%= number_to_currency Sale.average %></h2>
+<p>Our largest sale was <%= number_to_currency Sale.max %></p>
+<p> Our lowest was <%= number_to_currency Sale.min %></p>
+
+<h6>Sales timeline</h6>
+
+<ol>
+<% @sales.each do |sale| %>
+  <li><%= number_to_currency sale %></li>
+<% end %>
+</ol>
