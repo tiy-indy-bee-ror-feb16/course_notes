@@ -1,0 +1,3 @@
+<h1><%= @greeting %> there</h1>
+<%= link_to nil, greeting_path(greeting: params[:greeting] || "Boy howdy") %>
+<%= link_to "Say hallo to Pooh", greeting_url(greeting: "Hallo", salutation: "Pooh") %>
