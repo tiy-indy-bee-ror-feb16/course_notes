@@ -1,0 +1,7 @@
+<h1><%= span_first_word(@greeting) %></h1>
+
+<% if params[:controller] == "welcome" %>
+  <%= link_to "Goodbye", goodbye_url(:name => params[:name] || "Billy") %>
+<% else %>
+  <%= link_to "Welcome", root_path(:name => params[:name] || "Billy") %>
+<% end %>
