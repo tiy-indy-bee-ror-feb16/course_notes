@@ -13,7 +13,7 @@ class Post
   end
 
   def self.all
-    @posts ||= 6.times.map do |id|
+    @posts ||= 10.times.map do |id|
       Post.new(
         title: Faker::Book.title,
         body: Faker::Hipster.paragraphs(6).join("\n\n"),

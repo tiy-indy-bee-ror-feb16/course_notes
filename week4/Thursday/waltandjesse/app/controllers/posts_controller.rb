@@ -5,7 +5,9 @@ class PostsController < ApplicationController
   end
 
   def show
-    @post = Post.all.detect{ |p| p.id == params[:id].to_i }
+    @posts = Post.all
+    @post = @posts.detect{ |p| p.id == params[:id].to_i }
+    @tags = @posts.flat_map { |p| p.tags }.uniq
   end
-
+  
 end

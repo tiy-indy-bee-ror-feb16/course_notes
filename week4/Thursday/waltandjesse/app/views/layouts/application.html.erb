@@ -99,7 +99,7 @@
                 </div>
                 <nav id="menu" class="menu collapse navbar-collapse">
                  <ul id="headernavigation" class="menu-list nav navbar-nav">
-                  <li class="active"><a href="#page-top">Home</a></li>
+                  <%= active_li %><%= link_to "Home", root_path %></li>
                   <li><a href="#about">About</a></li>
                   <li><a href="#portfolio">Projects</a></li>
                   <li><a href="#services">Services</a></li>
@@ -175,25 +175,6 @@
     <i class="fa fa-chevron-up"></i>
   </span>
 </div><!-- /#scroll-to-top -->
-
-<script>
-
- $(document).ready(function() {
-
-  /* -------- One page Navigation ----------*/
-  $('#main-menu #menu').onePageNav({
-    currentClass: 'active',
-    changeHash: false,
-    scrollSpeed: 1500,
-    scrollThreshold: 0.5,
-    scrollOffset: 95,
-    filter: ':not(.sub-menu a, .not-in-home)',
-    easing: 'swing'
-  });
-
-});
-
-</script>
 
 </body>
 </html>
