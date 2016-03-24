@@ -1,0 +1,22 @@
+<div class="post-top">
+  <div class="post-thumbnail">
+    <%= link_to image_tag(post.image, alt: "Blog Image One"), post_path(id: post.id) %>
+  </div><!-- /.post-thumbnail -->
+  <div class="post-meta">
+    <div class="entry-meta">
+      <span class="entry-date">
+        <time><%= post.created_at.strftime("%b %d, %Y") %></time>
+      </span>
+      <span class="author-name">
+        <%= post.author %>
+      </span>
+      <span class="post-tags">
+        <ul class="tag-list">
+          <% post.tags.each do |tag| %>
+            <li><%= tag %></li>
+          <% end %>
+        </ul>
+      </span>
+    </div><!-- /.entry-meta -->
+  </div><!-- /.post-meta -->
+</div><!-- /.post-top -->

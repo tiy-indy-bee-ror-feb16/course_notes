@@ -1,0 +1,34 @@
+<section id="latest-post" class="latest-post">
+<div class="container">
+  <div class="post-area">
+    <div class="post-area-top text-center">
+      <h2 class="post-area-title">Latest Blog Post</h2>
+      <p class="title-description">Vestibulum auctor dapibus nequ</p>
+    </div><!-- /.post-area-top -->
+
+    <div class="row">
+      <div class="latest-posts">
+        <% @posts.each do |post| %>
+        <div class="col-sm-6">
+          <div class="item">
+            <article class="post type-post">
+              <%= render partial: 'posttop', locals: {post: post} %>
+              <div class="post-content">
+                <h2 class="entry-title"><%= link_to post.title, post_path(id: post.id) %></h2>
+                <p class="entry-text">
+                  <%= truncate(post.body, length: 300) %>
+                </p>
+                <%= link_to post_path(id: post.id), class: "btn" do %>
+                  <span class="btn-icon"><i class="fa fa-arrow-circle-right"></i></span>
+                  Read More
+                <% end %>
+              </div><!-- /.post-content -->
+            </article>
+          </div><!-- /.item -->
+        </div>
+      <% end %>
+    </div><!-- /.latest-posts -->
+  </div><!-- /.row -->
+</div><!-- /.post-area -->
+</div><!-- /.container -->
+</section><!-- /#latest-post -->

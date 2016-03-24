@@ -1,0 +1,53 @@
+<section id="main-content" class="main-content blog-post-singgle-page">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-8">
+        <div id="blog-post-content" class="blog-post-content">
+          <article class="post type-post">
+            <%= render partial: 'posttop', locals: {post: @post} %>
+            <div class="post-content">
+              <h2 class="entry-title"><%= @post.title %></h2>
+              <%= simple_format @post.body %>
+            </div><!-- /.post-content -->
+          </div>
+      </div>
+      <div class="col-sm-4">
+        <div id="blog-sidebar" class="blog-sidebar widget-area" role="complementary">
+          <div class="sidebar-content">
+
+            <aside class="widget widget_recent_entries">
+              <h3 class="widget-title">
+                Recent Posts
+              </h3><!-- /.widget-title -->
+              <ul class="recent-post">
+                <% @posts.each do |post| %>
+                  <li>
+                    <div class="recent-post-details">
+                      <%= link_to post.title, post_path(id: post.id), class: "post-title" %><br>
+                      <div class="post-meta">
+                        <time><%= post.created_at.to_date.to_s(:rfc822) %></time>
+                        <%= post.author %>
+                      </div><!-- /.post-meta -->
+                    </div><!-- /.recent-post-details -->
+                  </li>
+                <% end %>
+              </ul><!-- /.recent-post -->
+            </aside><!-- /.widget -->
+
+            <aside class="widget widget wp_widget_tag_cloud clearfix">
+              <h3 class="widget-title">
+                Tag Cloud
+              </h3><!-- /.widget-title -->
+              <div class="tag-cloud-wrapper">
+                <% @tags.each do |tag| %>
+                  <%= link_to tag, "#" %>
+                <% end %>
+              </div><!-- /.tag-cloud-wrapper -->
+            </aside><!-- /.widget -->
+
+              </div><!-- /.sidebar-content -->
+            </div><!-- /#sidebar -->
+          </div>
+        </div>
+      </div><!-- /.container -->
+    </section><!-- /#main-content -->
