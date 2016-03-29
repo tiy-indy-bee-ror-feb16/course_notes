@@ -1,0 +1,5 @@
+<ul id="dishes">
+  <% @dishes.each do |dish| %>
+    <li><%= link_to "#{dish.name}: #{number_to_currency(dish.price/100.0)}", dish %></li>
+  <% end %>
+</ul>

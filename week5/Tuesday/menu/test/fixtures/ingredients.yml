@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  quantity: 1
+  unit: MyString
+  contains_gluten: false
+  contains_meat: false
+  quality: MyString
+  dish_id: 1
+
+two:
+  name: MyString
+  quantity: 1
+  unit: MyString
+  contains_gluten: false
+  contains_meat: false
+  quality: MyString
+  dish_id: 1
