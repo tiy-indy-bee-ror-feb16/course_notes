@@ -1,0 +1,9 @@
+<h1><%= @dish.name %></h1>
+<%= simple_format @dish.description %>
+
+<h6>This dish contains:</h6>
+<ul id="ingredients">
+  <% @dish.ingredients.each do |ingredient| %>
+    <li><%= ingredient.quantity %><%= ingredient.unit %> of <%= ingredient.name %></li>
+  <% end %>
+</ul>
