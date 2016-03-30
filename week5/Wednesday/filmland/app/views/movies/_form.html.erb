@@ -1,0 +1,24 @@
+<div class="field-group">
+  <%= form.label :title %>
+  <%= form.text_field :title, class: 'field-control' %>
+</div>
+<div>
+  <%= form.label :description %>
+  <%= form.text_area :description, rows: 10 %>
+</div>
+<div>
+  <%= form.label :rating %>
+  <%= form.text_field :rating %>
+</div>
+<div>
+  <%= form.label :year_released %>
+  <%= form.select :year_released, (1900..Time.now.year).to_a.reverse, :include_blank => {:year => "Select year"} %>
+</div>
+<div>
+  <%= form.label :box_office %>
+  <%= form.number_field :box_office %>
+</div>
+<div>
+  <%= form.label :director %>
+  <%= form.select :director_id, Director.all.map { |dir| [dir.name, dir.id] }, include_blank: "None" %>
+</div>

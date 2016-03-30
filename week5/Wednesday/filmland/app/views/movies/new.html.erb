@@ -1,0 +1,18 @@
+<% if @movie.errors %>
+<%= @movie.errors.full_messages.inspect %>
+
+  <ul class="errors">
+    <% @movie.errors.messages.each do |key, value| %>
+      <% value.each do |error| %>
+        <li><%= key.to_s.humanize %> <%= error %></li>
+      <% end %>
+    <% end %>
+  </ul>
+<% end %>
+
+<%= form_for @movie do |f| %>
+  <%= render partial: 'form', :locals => {form: f} %>
+  <div>
+    <%= f.submit "Create Movie" %>
+  </div>
+<% end %>
