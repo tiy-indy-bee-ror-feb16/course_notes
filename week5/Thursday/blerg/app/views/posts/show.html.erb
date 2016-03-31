@@ -1,0 +1,5 @@
+<h1><%= @post.title %></h1>
+
+<p class="meta">Written by <%= link_to @post.author.name, @post.author %> on <%= @post.created_at.to_date.to_s %></p>
+
+<%= simple_format @post.body %>

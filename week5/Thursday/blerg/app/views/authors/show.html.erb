@@ -1,0 +1,7 @@
+<h1><%= @author.name %> ::  <%= number_with_delimiter(@author.word_count) %> words written</h1>
+
+<h3>Posts</h3>
+
+<%= render @posts %>
+
+<%= paginate @posts %>
