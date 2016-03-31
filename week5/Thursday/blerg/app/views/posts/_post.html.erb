@@ -1,0 +1,4 @@
+<div class="col-md-6">
+  <h2><%= link_to post.title, [post.author, post] %></h2>
+  <p class="meta"><%= link_to post.author.name, post.author %> | Written on <%= post.created_at.to_date.to_s %></p>
+</div>
