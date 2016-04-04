@@ -1,0 +1,9 @@
+<%= link_to "New Link", new_link_path %>
+
+<% @links.each do |link| %>
+  <h1>
+    <%= link_to link.title, click_link_path(link) %>
+    (<%= link.votes.inject(0) { |sum, votey| sum + votey.value } %>)
+  </h1>
+  <%= button_to "Upvote", votes_path(id: link.id) %>
+<% end %>

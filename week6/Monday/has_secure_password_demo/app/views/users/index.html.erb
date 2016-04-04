@@ -1,0 +1,12 @@
+<h1>Our users</h1>
+
+<% if current_user %>
+  <%= link_to "Logout", logout_path, method: :delete %>
+<% else %>
+  <%= link_to "Login", login_path %>
+  <%= link_to "Sign up", new_user_path %>
+<% end %>
+
+<% @users.each do |user| %>
+  <h1><%= user.username %></h1>
+<% end %>
