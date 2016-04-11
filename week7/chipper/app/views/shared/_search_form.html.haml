@@ -1,0 +1,7 @@
+= form_tag(search_path(type: type), class: 'form-inline', id: 'search_box', method: :get, authenticity_token: false) do
+  .form-group.col-md-12
+    .input-group.input-group-lg.col-md-12
+      = text_field_tag :q, params[:q], class: 'form-control'
+      %span.input-group-btn
+        %button.btn.btn-primary{type: 'submit'}
+          %i.glyphicon.glyphicon-search

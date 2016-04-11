@@ -1,0 +1,16 @@
+.user_profile.well
+  = link_to image_tag(user.profile_photo, class: 'img-rounded center-block'), user
+
+  .user_actions
+    = link_to user_path(user, followers: true), class: 'btn btn-primary col-md-12' do
+      Followers <span class="badge">#{user.followers.count}</span>
+    = link_to user_path(user, following: true), class: 'btn btn-primary col-md-12' do
+      Following <span class="badge">#{user.followeds.count}</span>
+    - if user == current_user
+      = link_to "Logout", logout_path, method: :delete, class: "btn btn-primary col-md-12"
+  - if current_user
+    %h4 Cheep away!
+    = render 'cheeps/form', cheep: @cheep || Cheep.new
+  - else
+    %h6 Why not join us?
+    = render 'users/form', user: User.new
