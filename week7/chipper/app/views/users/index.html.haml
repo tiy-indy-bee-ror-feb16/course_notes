@@ -1,0 +1,11 @@
+= render 'shared/search_form', type: 'users'
+
+= render @users
+
+= paginate @users
+
+- content_for :sidebar do
+  - if current_user || defined?(@user)
+    = render 'shared/logged_in_sidebar', user: @user || current_user
+  - else
+    = render 'shared/logged_out_sidebar'

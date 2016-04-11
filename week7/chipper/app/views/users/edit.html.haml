@@ -1,0 +1,9 @@
+= simple_form_for @user do |f|
+  = f.input :username
+  = f.input :email
+  = f.input :image_url, label: 'Profile image URL'
+  = f.input :bio
+  = f.input :old_password, label: "Current password", hint: "We need this if you're chaning your password"
+  = f.input :password
+  = f.submit our_label ||= "Let's Go!", class: 'btn btn-primary'
+

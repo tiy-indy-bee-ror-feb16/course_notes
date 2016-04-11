@@ -1,0 +1,11 @@
+.media.panel
+  .media-left
+    = link_to image_tag(user.profile_photo), user
+    - if current_user && user.followable_by?(current_user)
+      = button_to "Follow", follows_path(followed: user), class: 'btn btn-primary'
+    - elsif current_user && current_user.follows?(user)
+      = button_to "Unfollow", follows_path(followed: user), class: 'btn btn-danger'
+  .media-body
+    %h3
+      = link_to user.username, user
+    = simple_format(user.bio)

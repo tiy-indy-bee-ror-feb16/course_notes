@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Chipper</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+  <%= render 'shared/navbar' %>
+  <div class="container">
+    <% if flash.any? %>
+      <% flash.each do |key, message| %>
+        <div class="alert alert-<%= key %>"><%= message %></div>
+      <% end %>
+    <% end %>
+    <div class="row">
+      <div class="col-md-4" id="sidebar">
+        <%= yield :sidebar %>
+      </div>
+      <div class="col-md-8" id="content">
+        <% if defined?(@title) %>
+          <h1><%= @title %></h1>
+        <% end %>
+        <%= yield %>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

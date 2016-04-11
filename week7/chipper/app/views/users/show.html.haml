@@ -1,0 +1,19 @@
+= render 'shared/search_form', type: 'users'
+
+- content_for :sidebar do
+  = render 'shared/logged_in_sidebar', user: @user
+  - unless current_user == @user
+    .well
+      - if current_user && @user.blocked_by?(current_user)
+        = button_to "Unblock", blockers_path(blocked: @user), class: "btn btn-danger"
+      - elsif current_user
+        = button_to "Block", blockers_path(blocked: @user), class: "btn btn-danger"
+
+%h1
+  = @user.username
+
+= simple_format @user.bio
+
+= render @cheeps
+
+= paginate @cheeps

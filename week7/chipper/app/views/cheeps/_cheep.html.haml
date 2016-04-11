@@ -1,0 +1,11 @@
+.media.panel
+  .media-left
+    = link_to image_tag(cheep.user.profile_photo), cheep.user
+    - if current_user && cheep.user.followable_by?(current_user)
+      = button_to "Follow", follows_path(followed: cheep.user), class: 'btn btn-primary'
+    - elsif current_user && current_user.follows?(cheep.user)
+      = button_to "Unfollow", follows_path(followed: cheep.user), class: 'btn btn-danger'
+  .media-body
+    = rendered_cheep(cheep)
+    %p.meta
+      #{link_to cheep.user.username, cheep.user} at #{link_to cheep.created_at.localtime.to_s(:long), [cheep.user, cheep]}

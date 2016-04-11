@@ -1,0 +1,4 @@
+= render @cheep
+
+- content_for :sidebar do
+  = render 'shared/logged_in_sidebar', user: @cheep.user

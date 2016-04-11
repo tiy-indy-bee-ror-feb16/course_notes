@@ -1,0 +1,5 @@
+.user_profile.well
+  %h4
+    We have #{number_with_delimiter Cheep.count} cheeps created by #{number_with_delimiter User.count} cheepers!
+  %h6 Why not join us?
+  = render 'users/form', user: User.new
