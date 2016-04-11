@@ -1,4 +1,7 @@
 class SessionsController < ApplicationController
+  before_action :require_user, only: [:destroy]
+  before_action :forbid_user, only: [:new, :create]
+
   def new
   end
 

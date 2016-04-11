@@ -3,19 +3,27 @@ class User < ActiveRecord::Base
 
   has_secure_password
   has_many :cheeps
+
+  # People following the user
   has_many :followerings, foreign_key: :followed_id, class_name: 'Follow'
-  has_many :followedings, foreign_key: :follower_id, class_name: 'Follow'
   has_many :followers, through: :followerings
+
+  # People the user is following
+  has_many :followedings, foreign_key: :follower_id, class_name: 'Follow'
   has_many :followeds, through: :followedings
+
+  # People the user has blocked
   has_many :blockerings, foreign_key: :blocker_id, class_name: 'Blocker'
-  has_many :blockedings, foreign_key: :blocked_id, class_name: 'Blocker'
   has_many :blockers, through: :blockedings
+
+  # People who haved blocked the user
+  has_many :blockedings, foreign_key: :blocked_id, class_name: 'Blocker'
   has_many :blocked, through: :blockerings
 
   pg_search_scope :search_by_username, :against => :username
 
   scope :find_for_login, -> (identifier) { where('users.username = ? OR users.email =?', identifier, identifier).first }
-
+  
   def to_param
     username
   end

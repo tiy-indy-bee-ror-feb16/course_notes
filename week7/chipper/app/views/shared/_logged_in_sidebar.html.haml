@@ -10,7 +10,7 @@
       = link_to "Logout", logout_path, method: :delete, class: "btn btn-primary col-md-12"
   - if current_user
     %h4 Cheep away!
-    = render 'cheeps/form', cheep: @cheep || Cheep.new
+    = render 'cheeps/form', cheep: Cheep.new
   - else
     %h6 Why not join us?
     = render 'users/form', user: User.new
