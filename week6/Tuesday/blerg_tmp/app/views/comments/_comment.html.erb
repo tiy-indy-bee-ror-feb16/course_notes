@@ -1,0 +1,6 @@
+<div class="row">
+  <%= simple_format(comment.body) %>
+  <p class="meta">Posted by <%= comment.author.name %> on <%= link_to comment.created_at.to_date.to_s, [comment.commentable, comment] %>. <%= comment_parent_link(comment) %></p>
+  <%= button_to "Delete", [current_author, comment], method: :delete, class: 'btn btn-danger' if comment.on? current_author %>
+  <%= render comment.comments %>
+</div>

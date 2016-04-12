@@ -1,0 +1,8 @@
+<div class="col-md-6">
+  <h1>Log In</h1>
+  <%= simple_form_for :session, url: login_create_path do |f| %>
+    <%= f.input :name %>
+    <%= f.input :password %>
+    <%= f.submit %>
+  <% end %>
+</div>
