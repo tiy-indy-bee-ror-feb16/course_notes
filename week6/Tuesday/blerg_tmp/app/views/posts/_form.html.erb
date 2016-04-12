@@ -1,0 +1,7 @@
+<%= simple_form_for @this_post ||= Post.new, validate: true do |f| %>
+  <%= f.input :title %>
+  <%= f.input :body, rows: 20 %>
+  <%= f.input :tag_list %>
+  <%= f.association :authors, as: :check_boxes %>
+  <%= f.button :submit %>
+<% end %>

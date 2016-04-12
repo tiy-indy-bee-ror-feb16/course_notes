@@ -1,0 +1,23 @@
+<h1><%= @author.name %> ::  <%= number_with_delimiter(@author.word_count) %> words written</h1>
+
+
+<div class="row">
+  <div class="col-md-8">
+    <h3>Posts</h3>
+    <%= render @posts %>
+  </div>
+  <div class="col-md-4" id="comments_list">
+    <h3>Comments</h3>
+    <%= render @author.reps %>
+    <%= render partial: 'comments/form', locals: { whatever: @author } %>
+  </div>
+</div>
+
+<div class="row">
+  <%= paginate @posts %>
+
+  <% if current_author && current_author == @author %>
+    <h3>Add a new post</h3>
+    <%= render 'posts/form' %>
+  <% end %>
+</div>

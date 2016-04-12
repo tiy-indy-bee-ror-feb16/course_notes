@@ -1,0 +1,7 @@
+<h1>Most prolific authors</h1>
+
+<% @authors.each do |author| %>
+  <h2><%= link_to author.name, author %> - <%= number_with_delimiter(author.word_count) %> words</h2>
+<% end %>
+
+<%= paginate @authors %>
