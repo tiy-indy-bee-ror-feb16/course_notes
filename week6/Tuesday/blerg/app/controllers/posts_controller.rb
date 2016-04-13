@@ -10,6 +10,11 @@ class PostsController < ApplicationController
 
   def index
     @posts = Post.ordered.page(params[:page])
+    respond_to do |format|
+      format.html {}
+      format.xml {  }
+      format.json {  }
+    end
   end
 
   def new
@@ -20,7 +25,10 @@ class PostsController < ApplicationController
     @this_post = Post.new(post_params)
     if @this_post.save
       @this_post.authors << current_author unless current_author.wrote?(@this_post)
-      redirect_to @this_post
+      respond_to do |format|
+        format.html { redirect_to @this_post }
+        format.js { }
+      end
     else
       render :new
     end
