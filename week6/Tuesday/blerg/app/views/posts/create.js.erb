@@ -1,0 +1,4 @@
+$('#new_post_form').modal('toggle')
+$('#new_post')[0].reset()
+$('#posts_list').prepend('<%=j render @this_post %>')
+$('#content').prepend('<%=j render "application/flashes", flash: {:success => "You posted Woot"} %>')

@@ -1,4 +1,4 @@
-<%= simple_form_for @this_post ||= Post.new, validate: true do |f| %>
+<%= simple_form_for @this_post ||= Post.new, validate: true, remote: true do |f| %>
   <%= f.input :title %>
   <%= f.input :body, rows: 20 %>
   <%= f.input :tag_list %>

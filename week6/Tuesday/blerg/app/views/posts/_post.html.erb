@@ -1,4 +1,4 @@
-<div class="row">
+<div class="row" id="post_<%= post.id %>">
   <h2><%= link_to post.title, [post.authors.first, post] %></h2>
   <p class="meta"><%= post_author_links(post) %> | Written on <%= post.created_at.to_date.to_s %></p>
 </div>

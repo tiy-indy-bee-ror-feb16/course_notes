@@ -25,7 +25,10 @@ class SessionsController < ApplicationController
   def destroy
     session[:author_id] = nil
     flash[:warning] = "You're now logged out."
-    redirect_to :root
+    respond_to do |format|
+      format.html { redirect_to :root }
+      format.js { }
+    end
   end
 
 end

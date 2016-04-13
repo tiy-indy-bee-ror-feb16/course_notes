@@ -7,3 +7,16 @@
   float: right;
   color: green;
 }
+
+@keyframes highlight {
+ 	0% {
+ 		background: #f0ad4e
+ 	}
+ 	100% {
+ 		background: none;
+ 	}
+}
+
+.fader:target {
+	animation: highlight 1s;
+}
