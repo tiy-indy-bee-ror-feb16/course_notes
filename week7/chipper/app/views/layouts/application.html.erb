@@ -8,12 +8,8 @@
 </head>
 <body>
   <%= render 'shared/navbar' %>
-  <div class="container">
-    <% if flash.any? %>
-      <% flash.each do |key, message| %>
-        <div class="alert alert-<%= key %>"><%= message %></div>
-      <% end %>
-    <% end %>
+  <div class="container" id="primary_body">
+    <%= render 'flashes' %>
     <div class="row">
       <div class="col-md-4" id="sidebar">
         <%= yield :sidebar %>
