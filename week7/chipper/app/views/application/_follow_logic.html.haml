@@ -1,0 +1,5 @@
+%div{class: "block_button_#{user.id}"}
+  - if current_user && user.followable_by?(current_user)
+    = button_to "Follow", follows_path(followed: user), class: 'btn btn-primary', remote: true
+  - elsif current_user && current_user.follows?(user)
+    = button_to "Unfollow", follows_path(followed: user), class: 'btn btn-danger', remote: true

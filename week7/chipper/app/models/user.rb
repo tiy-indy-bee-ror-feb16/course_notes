@@ -23,11 +23,13 @@ class User < ActiveRecord::Base
   pg_search_scope :search_by_username, :against => :username
 
   scope :find_for_login, -> (identifier) { where('users.username = ? OR users.email =?', identifier, identifier).first }
-  
+
+  # Automatically support usernames as params[:id] in paths and urls
   def to_param
     username
   end
 
+  # Use the user's profile image, or fallback to Gravatar
   def profile_photo
     image_url || Gravatar.new(email).image_url
   end
