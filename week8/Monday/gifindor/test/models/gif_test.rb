@@ -16,19 +16,19 @@ class GifTest < ActiveSupport::TestCase
   def test_tag_names_equal_works_with_comma_separated_string
     @gif.tag_names = "howdy, hey, hi"
     assert @gif.tags.length == 3
-    assert @gif.tag_names == 'howdy, hey, and hi'
+    assert @gif.tag_names == 'howdy, hey, hi'
   end
 
   def test_tag_names_equal_works_with_array
     @gif.tag_names = %w(iu purdue bsu nd)
     assert @gif.tags.length == 4
-    assert @gif.tag_names == 'iu, purdue, bsu, and nd'
+    assert @gif.tag_names == 'iu, purdue, bsu, nd'
   end
 
   def test_a_gif_is_taggable
     @gif.tag_with("this, that, another")
     @gif.save!
-    assert @gif.tag_names == 'this, that, and another'
+    assert @gif.tag_names == 'this, that, another'
   end
 
   def test_tags_overwrite
