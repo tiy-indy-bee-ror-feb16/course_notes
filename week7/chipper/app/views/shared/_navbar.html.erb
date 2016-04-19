@@ -14,10 +14,10 @@
             <ul class="nav navbar-nav navbar-right">
               <li><%= link_to "Profile", user_path(id: 'self') %></li>
               <li><%= link_to "Settings", edit_user_path(current_user) %></li>
-              <li><%= link_to "Sign out", logout_path, method: :delete %></li>
+              <li><%= link_to "Sign out", logout_path, method: :delete, remote: true %></li>
             </ul>
           <% else %>
-            <%= simple_form_for :session, url: login_create_path, html: {class: 'navbar-form navbar-right'} do |f| %>
+            <%= simple_form_for :session, url: login_create_path, html: {class: 'navbar-form navbar-right'}, remote: true do |f| %>
               <%= f.input :identifier, placeholder: 'Email or username', label: false %>
               <%= f.input :password, placeholder: 'Password', label: false %>
               <%= f.button :submit, 'Sign in', class: 'btn btn-success' %>

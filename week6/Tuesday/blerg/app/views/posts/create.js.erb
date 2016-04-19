@@ -1,5 +1,5 @@
 $('#new_post_form').modal('toggle')
 $('#new_post')[0].reset()
 $('#posts_list').prepend('<%=j render @this_post %>')
-$('#post_<%= @this_post.id %>').effect('highlight', {}, 3000)
+$('#post_<%= @this_post.id %>').effect('highlight', {}, 2000)
 $('#content').prepend('<%=j render "application/flashes", flash: {:success => "You posted Woot"} %>')

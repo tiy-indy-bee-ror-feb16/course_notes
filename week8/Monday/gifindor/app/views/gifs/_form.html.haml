@@ -1,0 +1,5 @@
+= simple_form_for @gif, remote: true do |f|
+  = f.input :image_url
+  = f.attachment_field :gif, label: 'Or, upload a gif ...'
+  = f.input :tag_names, label: 'Tags', hint: 'comma-separated'
+  = f.submit class: 'btn btn-primary'
