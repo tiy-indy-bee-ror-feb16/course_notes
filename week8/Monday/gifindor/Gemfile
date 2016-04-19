@@ -30,6 +30,12 @@ gem 'sdoc', '~> 0.4.0', group: :doc
  gem 'faker'
  gem 'kaminari'
  gem 'haml'
+ gem "refile", require: "refile/rails"
+ gem "refile-mini_magick"
+ gem 'refile-s3'
+ gem 'remotipart', '~> 1.2'
+ gem 'figaro'
+
 
 # Use Unicorn as the app server
 gem 'unicorn'

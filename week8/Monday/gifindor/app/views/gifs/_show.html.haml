@@ -1,4 +1,4 @@
-= image_tag @gif.image_url, class: 'img-responsive'
+= image_tag @gif.gif_display_url, class: 'img-responsive'
 %p.meta
   Uploaded by #{@gif.user.username} at #{@gif.created_at.to_s(:long)}
 %p.pasteme
