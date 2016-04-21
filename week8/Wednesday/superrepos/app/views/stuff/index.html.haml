@@ -1,0 +1,22 @@
+= form_tag root_path, method: :get, enforce_utf8: false do
+  = text_field_tag :q, params[:q]
+  = submit_tag "Search", :name => nil
+
+- if @character
+  %h1
+    = @character['name']
+  = image_tag @character['thumbnail']['path'] + '.' + @character['thumbnail']['extension']
+  = simple_format @character['description']
+
+- if @repos
+  %h1
+    SuperRepos!
+  %ul
+    - @repos.each do |repo|
+      %li
+        = link_to repo.full_name, repo.html_url
+
+
+- if @error
+  %h1
+    = @error

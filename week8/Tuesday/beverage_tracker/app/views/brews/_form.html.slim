@@ -1,0 +1,7 @@
+= simple_form_for @brew do |f|
+  = f.input :name
+  = f.input :description
+  = f.input :ibu, hint: 'International Bitterness Unit'
+  = f.input :abv, label: 'Alcohol by Volume'
+  = f.attachment_field :image
+  = f.submit
