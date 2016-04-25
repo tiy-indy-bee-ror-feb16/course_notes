@@ -1,4 +1,13 @@
 Rails.application.routes.draw do
+  namespace :admin do
+    resources :authors
+    resources :comments
+    resources :posts
+    resources :tags
+    get '/users/:id' => 'authors#show'
+    root to: "authors#index"
+  end
+
   resources :authors do
     resources :comments, only: [:create, :destroy, :show]
     resources :posts

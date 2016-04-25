@@ -31,6 +31,8 @@ gem 'haml'
 gem 'jquery-turbolinks'
 gem 'client_side_validations'
 gem 'client_side_validations-simple_form'
+gem "administrate", "~> 0.2.0"
+gem "administrate-field-image"
 
 
 # Use ActiveModel has_secure_password
