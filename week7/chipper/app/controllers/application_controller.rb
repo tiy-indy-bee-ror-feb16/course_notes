@@ -4,6 +4,9 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   helper_method :current_user
+  # after_filter -> { flash.discard } if -> { request.xhr? }
+  after_filter :clear_flashes
+
 
   private
 
@@ -21,6 +24,12 @@ class ApplicationController < ActionController::Base
 
   def redirect_with_message(message, key = :danger)
     redirect_to :back || :root, flash: { key => message}
+  end
+
+  def clear_flashes
+    if request.xhr?
+      flash.discard
+    end
   end
 
 end

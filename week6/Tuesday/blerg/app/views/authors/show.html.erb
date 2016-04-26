@@ -7,6 +7,7 @@
     <%= render @posts %>
   </div>
   <div class="col-md-4" id="comments_list">
+    <%= render 'payola/transactions/checkout', sellable: @author %>
     <h3>Comments</h3>
     <%= render @author.reps %>
     <%= render partial: 'comments/form', locals: { whatever: @author } %>

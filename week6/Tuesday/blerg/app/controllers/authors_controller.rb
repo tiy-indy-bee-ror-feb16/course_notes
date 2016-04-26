@@ -5,7 +5,7 @@ class AuthorsController < ApplicationController
 
 
   def show
-    @author = Author.find(params[:id])
+    @author = Author.friendly.find(params[:id])
     @posts = @author.posts.ordered.page(params[:page])
     @post = Post.new(authors: [current_author]) if current_author
   end

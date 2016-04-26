@@ -1,4 +1,7 @@
 class Post < ActiveRecord::Base
+  include Payola::Sellable
+  extend FriendlyId
+
   has_many :authorships, dependent: :destroy
   has_many :authors, through: :authorships
   after_save :update_author_word_count
@@ -11,7 +14,23 @@ class Post < ActiveRecord::Base
   scope :ordered, -> { order("created_at DESC") }
   scope :by_author, -> (author) { joins(:authors).where("authors.id = ?", author.id) }
 
+  friendly_id :title, use: :slugged, slug_column: :permalink
+
   paginates_per 5
+
+  # Payola methods
+
+  def name
+    title
+  end
+
+  def price
+    1 * body.split(" ").length
+  end
+
+  def redirect_path(sale)
+    "/order/complete/#{sale.id}"
+  end
 
   def update_author_word_count
     authors.each do |author|
