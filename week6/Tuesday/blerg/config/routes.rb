@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  mount Payola::Engine => '/payola', as: :payola
   namespace :admin do
     resources :authors
     resources :comments
@@ -28,6 +29,7 @@ Rails.application.routes.draw do
   delete '/logout' => 'sessions#destroy', as: :logout
 
   get '/signup' => 'authors#new', as: :signup
+  get '/order/complete/:id' => 'order#show'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

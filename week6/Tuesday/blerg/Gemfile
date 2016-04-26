@@ -29,11 +29,13 @@ gem 'kaminari-bootstrap', '~> 3.0.1'
 gem 'simple_form'
 gem 'haml'
 gem 'jquery-turbolinks'
-gem 'client_side_validations'
-gem 'client_side_validations-simple_form'
 gem "administrate", "~> 0.2.0"
 gem "administrate-field-image"
-
+gem 'payola-payments'
+gem 'paper_trail'
+gem 'figaro'
+gem 'friendly_id', '~> 5.1.0'
+gem 'sidekiq'
 
 # Use ActiveModel has_secure_password
  gem 'bcrypt', '~> 3.1.7'

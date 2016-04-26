@@ -1,0 +1,8 @@
+<% if @sale.product.is_a? Post %>
+  <h1>Thank you for buying '<%= @sale.product.title %>'</h1>
+<% else %>
+  <h1>Thank you for buying the posts of <%= @sale.product.name %></h1>
+<% end %>
+<h6>We charged you <%= number_to_currency(@sale.amount/100.0) %></h6>
+
+<em>Have a splendid day!</em>

@@ -11,11 +11,10 @@
 // about supported directives.
 //
 //= require jquery
+//= require payola
 //= require jquery.turbolinks
 //= require jquery_ujs
 //= require jquery-ui
 //= require turbolinks
 //= require bootstrap-sprockets
-//= require rails.validations
-//= require rails.validations.simple_form
 //= require_tree .
